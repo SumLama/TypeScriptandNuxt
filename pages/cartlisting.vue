@@ -20,7 +20,7 @@ const handleCheckout = ()=>{
         <tr v-for="(item,key,index) in cart.items"  class="hover:bg-gray-100 border-2">
           <td class="py-2 px-4 text-center">{{ index+1 }}</td>
           <td class="py-2 px-4 flex items-center justify-center">
-            <img :src="item.image" :alt="item.title" class=" h-14 sm:h-16 md:h-24 object-contain" />
+            <img :src="item.image" :alt="item.title" class=" h-14 sm:h-16 md:h-24 w-14 sm:w-16 md:w-24 object-contain" />
           </td>
           <td class="py-2 px-4  text-center"> 
             <QuantityButton v-model.number="item.quantity" />
