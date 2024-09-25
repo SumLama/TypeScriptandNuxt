@@ -3,21 +3,6 @@ const cart= cartStore()
 const handleCheckout = ()=>{
   alert("Proceeding to checkout")
 }
-interface CartItem{
-    id:number,
-    title:string,
-    image:string,
-    price:number,
-    quantity:number
-}
-const IncreaseQty= (item:CartItem)=>{
-    item.quantity++;
-}
-const DecreaseQty= (item:CartItem)=>{
-  if(item.quantity>0){
-    item.quantity--;
-  }
-}
 </script>
 <template>
   <div v-if="cart.itemCount > 0" class="flex justify-center my-8 ">
@@ -37,10 +22,8 @@ const DecreaseQty= (item:CartItem)=>{
           <td class="py-2 px-4 flex items-center justify-center">
             <img :src="item.image" :alt="item.title" class=" h-14 sm:h-16 md:h-24 object-contain" />
           </td>
-          <td class="py-2 px-4  text-center">
-            <button class="font-bold " @click="DecreaseQty(item)">-</button>
-            <input type="text" placeholder="1" v-model="item.quantity" class="h-10 w-10 m-2 text-center border-2 " />
-            <button class="font-bold" @click="IncreaseQty(item)">+</button> 
+          <td class="py-2 px-4  text-center"> 
+            <QuantityButton v-model.number="item.quantity" />
           </td>
           <td class="py-2 px-4 text-center">$ {{ (item.price * item.quantity).toFixed(2) }}</td>
           <td class=" text-center " @click="cart.removeItem(key)"><UIcon name="solar:trash-bin-trash-bold" class="h-8 w-6"/></td>

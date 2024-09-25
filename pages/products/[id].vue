@@ -13,14 +13,6 @@ interface Product{
 
 const {data:product,status} = await useFetch<Product>(`https://fakestoreapi.com/products/${route.params.id}`)
 
-const IncreaseQty= ()=>{
-    quantity.value++;
-}
-const DecreaseQty= ()=>{
-  if(quantity.value>0){
-      quantity.value--;
-  }
-}
 const selectImage=(img:string)=>{
     selectedImage.value=img;
 
@@ -44,16 +36,16 @@ const addToCart = ()=>{
         <h1>Loading.............</h1>
     </div>
     <div v-else-if="status==='success' && product" class="flex-row md:flex mx-5 ">                                                   
-      <div class="grid grid-cols-1 w-full md:w-1/3  h-1/2  md:justify-items-center ">
-        <div >
-            <img :src="selectedImage || product.image" :alt="product.title" class="h-[330px] w-72 border-2 md:my-3 p-7 object-contain"/>
-        </div>
-        <div class=" flex flex-row gap-2 h-20 w-72 my-4 md:my-0 ">
-            <img :src="product.image" @click="selectImage(product.image)" :alt="product.title" class="h-auto w-1/4 border-2 p-2 object-contain"/>
-            <img :src="product.image" @click="selectImage(product.image)"  :alt="product.title" class="h-auto w-1/4 border-2 p-2 object-contain"/>
-            <img :src="product.image" @click="selectImage(product.image)"  :alt="product.title" class="h-auto w-1/4  border-2 p-2 object-contain"/>
-            <img :src="product.image" @click="selectImage(product.image)"  :alt="product.title" class="h-auto w-1/4  border-2 p-2  object-contain"/>
-        </div> 
+        <div class="grid grid-cols-1 w-full md:w-1/3  h-1/2  md:justify-items-center ">
+            <div >
+                <img :src="selectedImage || product.image" :alt="product.title" class="h-[330px] w-72 border-2 md:my-3 p-7 object-contain"/>
+            </div>
+            <div class=" flex flex-row gap-2 h-20 w-72 my-4 md:my-0 ">
+                <img :src="product.image" @click="selectImage(product.image)" :alt="product.title" class="h-auto w-1/4 border-2 p-2 object-contain"/>
+                <img :src="product.image" @click="selectImage(product.image)"  :alt="product.title" class="h-auto w-1/4 border-2 p-2 object-contain"/>
+                <img :src="product.image" @click="selectImage(product.image)"  :alt="product.title" class="h-auto w-1/4  border-2 p-2 object-contain"/>
+                <img :src="product.image" @click="selectImage(product.image)"  :alt="product.title" class="h-auto w-1/4  border-2 p-2  object-contain"/>
+            </div> 
             
         </div> 
         <div class="w-full md:w-1/2 md:mx-10 lg:mx-0">
@@ -71,9 +63,7 @@ const addToCart = ()=>{
                     <div class="text-xl" >
                         <label>Quantity:</label>
                         <div class="inline mx-4">
-                            <button class="font-bold " @click="DecreaseQty">-</button>
-                            <input type="text" placeholder="1" v-model.number="quantity" class="h-10 w-10 m-2 text-center border-2 " />
-                            <button class="font-bold" @click="IncreaseQty">+</button>  
+                        <QuantityButton v-model.number="quantity"/>
                         </div>
                     </div>
                 </li>
