@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
 const route = useRoute()
 const quantity = ref<number>(1);
 const selectedImage=  ref<string | null>();
- const cartstore = cartStore();
+const cartstore = cartStore();
 interface Product{
     id:number,
     title:string,
@@ -12,6 +10,7 @@ interface Product{
     price:number,
     description:string  
 }
+
 const {data:product,status} = await useFetch<Product>(`https://fakestoreapi.com/products/${route.params.id}`)
 
 const IncreaseQty= ()=>{
@@ -90,6 +89,3 @@ const addToCart = ()=>{
         </div>
     </div>
 </template>
-<style scoped>
-
-</style>

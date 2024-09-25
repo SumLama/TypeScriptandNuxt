@@ -11,7 +11,6 @@ const {data:products,status} = await useFetch<Product[]>("https://fakestoreapi.c
 </script>
 
 <template>
-  
     <div v-if="status==='pending'" class="text-center text-2xl">
         <h1>Loading....</h1>
     </div>
