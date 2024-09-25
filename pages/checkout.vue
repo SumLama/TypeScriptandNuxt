@@ -1,7 +1,4 @@
 <script setup>
-import { ref } from 'vue';
-import { cartStore } from '~/composables/cartStores';
-
 const cart = cartStore();
 const items = ref(cart.items);
 const handleOrder = () => {
