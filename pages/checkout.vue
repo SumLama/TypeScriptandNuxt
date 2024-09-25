@@ -2,8 +2,8 @@
 const cart = cartStore();
 const items = ref(cart.items);
 const handleOrder = () => {
-  alert("Placed Order successfully...!");
-};
+  alert("Placed Order successfully...!")
+}
 </script>
 
 <template>
