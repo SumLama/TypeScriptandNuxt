@@ -1,17 +1,17 @@
 <script setup>
 const cart = cartStore();
-const items = ref(cart.items);
 const handleOrder = () => {
   alert("Placed Order successfully...!")
+  cart.clearStore()
 }
 </script>
 
 <template>
   <div class="p-5">
-    <div class="flex justify-between items-start space-x-5 space-y-2">
+    <div v-if="cart.items.length>0" class="flex justify-between items-start space-x-5 space-y-2">
       <div class="grid grid-cols-3 ">
-        <div v-for="(item, index) in items" :key="index" class="p-4 mx-4 my-4 border-2  flex flex-col w-72 h-72">
-          <div class="flex  justify-center">
+        <div v-for="(item, index) in cart.items" :key="index" class="p-4 mx-4 my-4 border-2  flex flex-col w-72 h-72">
+            <div class="flex  justify-center">
             <img :src="item.image" :alt="item.name" class="h-24 w-18 my-4"  />
           </div>
           
@@ -26,6 +26,9 @@ const handleOrder = () => {
           Place Order
         </button>
       </div>
+    </div>
+    <div v-else class="text-center text-5xl">
+      <h1>Thank you for Shopping!</h1>
     </div>
   </div>
 </template>
