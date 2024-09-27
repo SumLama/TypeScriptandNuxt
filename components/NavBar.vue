@@ -9,7 +9,7 @@ const cart = cartStore()
                 <NuxtLink to="/products" class="px-3" exact-active-class="text-[#0058A0] ">Products</NuxtLink>
             </div>
             <div>
-                <NuxtLink to="/cartlisting" exact-active-class="text-[#0058A0]">
+                <NuxtLink to="/cart" exact-active-class="text-[#0058A0]">
                     <UIcon name="heroicons:shopping-cart" class="w-8 h-8"  />
                     <span class="text-base align-text-top mx-1">{{cart.itemCount }}</span>
                 </NuxtLink>
