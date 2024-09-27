@@ -81,12 +81,7 @@ const { data: product, status } = await useFetch<Product>(`https://fakestoreapi.
                         <div class="flex">
                             <button :class="quantity<=1 ? 'text-gray-200 hover:cursor-not-allowed':'text-black hover:cursor-pointer'" 
                              class=" text-4xl" @click="decreaseQty()">-</button>
-                           <input  type="text" placeholder="1" v-model.number="quantity" min="1" class="h-10 w-10 m-2 text-center border-2" @input="handleInput($event)"/>
-                           <!-- <UInput type="text" placeholder="1" v-model.number="quantity" min="1" class="h-10 w-10 m-2 text-center " size="xl" padding="2xl"
-                           :ui="{
-                          
-                            rounded: 'rounded-none',
-                           }"/> -->
+                           <input  type="number" placeholder="1" v-model.number="quantity" min="1" class="h-10 w-10 m-2 text-center border-2" @input="handleInput($event)"/>
                             <button class="cursor-pointer text-3xl" @click="increaseQty()">+</button>
                         </div>
                     </div>

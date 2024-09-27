@@ -32,7 +32,7 @@ const handleInput=(event:Event,index:number)=>{
           <td class="py-2 px-4  text-center"> 
             <button :class="item.quantity<=1 ? 'text-gray-200 hover:cursor-not-allowed':'text-black hover:cursor-pointer'" 
               class=" text-4xl" @click="cart.decreaseQty(item.id)" >-</button>
-            <input type="text" placeholder="1" v-model.number="item.quantity" min="1" class="h-10 w-10 m-2 text-center border-2" @input="handleInput($event, index)"/>
+            <input type="number" placeholder="1" v-model.number="item.quantity" min="1" class="h-10 w-10 m-2 text-center border-2" @input="handleInput($event, index)"/>
             <button class="cursor-pointer text-3xl" @click="cart.increaseQty(item.id)">+</button>  
           </td>
           <td class="py-2 px-4 text-center">$ {{ (item.price * item.quantity).toFixed(2) }}</td>
